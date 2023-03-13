@@ -33,7 +33,7 @@ header {
   display: flex;
   flex-direction: row;
   grid-template-columns: auto 1fr;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .App .Navbar h2 {
@@ -51,27 +51,21 @@ header {
   /* with a pseudo element include a string, which is hidden by default below the header, to the left of the page  */
   content: "🤲";
   position: absolute;
-  left: 100%;
-  transform: translateX(-50vw);
+  left: 80%;
+  transform: translateX(-60vw);
   /* top to match the vertical padding */
   top: 0.35rem;
   color: var(--color-txt);
   /* transition for the transform property, to translate the string into view and to the right of the header */
   transition: all 0.5s ease-out;
   /* z-index to have the pseudo element below the header itself */
-  z-index: -5;
+  z-index: -1;
 }
 
 .App .Navbar h2:hover:before {
   /* translate the pseudo element into view on hover */
   transform: translateX(20px);
 }
-
-/*
-for relatively smaller and smaller viewports:
-- start by hiding the pseudo element responsible for the string 
-- continue by removing the header bearing the "logo" as well 
-*/
 
 @media (max-width: 750px) {
   .App .Navbar h2:before {

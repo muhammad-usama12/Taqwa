@@ -5,7 +5,7 @@ export default function Footer(props) {
   return (
     <footer>
       <span>
-        @ 2023 <a href="/">untitled project</a> by{" "}
+        @ 2023 <a href="/">Nur</a> by{" "}
         <a href="https://github.com/muhammad-usama12">muhammad usama</a>{" "}
       </span>
     </footer>

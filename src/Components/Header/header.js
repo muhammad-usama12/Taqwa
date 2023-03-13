@@ -6,7 +6,7 @@ export default function Header(props) {
     <header>
       <div className="App">
         <nav className="Navbar">
-          <h2>untitled project</h2>
+          <h2>Nur</h2>
         </nav>
       </div>
     </header>
