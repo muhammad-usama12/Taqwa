@@ -3,16 +3,25 @@ import axios from "axios";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
+  const [filter, setFilter] = useState([]);
   const [data, setData] = useState([]);
+  const [date, setDate] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response =
-          await axios.get(`https://api.aladhan.com/v1/calendar/2017/4?latitude=${location.latitude}&longitude=${location.longitude}&method=2http://api.aladhan.com/v1/calendar/2019?latitude=51.508515&longitude=-0.1254872&method=2
+          await axios.get(`https://api.aladhan.com/v1/calendar/${new Date().getFullYear()}/${
+            new Date().getMonth() + 1
+          }?latitude=${location.latitude}&longitude=${
+            location.longitude
+          }&method=2
           `);
-        setData(response.data);
-        console.log("DATA FETCHED:", response.data);
+        const filteredDate = filter.data[`${new Date().getDate() - 1}`];
+        setFilter(response.data);
+        setData(filteredDate);
+        console.log("DATA FETCHED:", data.timings);
+        console.log("CURRENT DATE DATA:", filteredDate.date);
       } catch (err) {
         console.log("ERROR:", err);
       }
@@ -27,9 +36,10 @@ export default function PrayerTable(props) {
     const fetchDataWithLocation = async () => {
       try {
         const position = await getLocation();
-        const { longitude, latitude } = position.coords;
+
+        const { latitude, longitude } = position.coords;
         setLocation({ longitude, latitude });
-        console.log("LOCATION:", longitude, latitude);
+        console.log("LOCATION:", latitude, longitude);
       } catch (error) {
         console.log("Error getting location:", error);
       }
