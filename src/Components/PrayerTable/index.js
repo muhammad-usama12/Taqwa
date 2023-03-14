@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import "./index.scss";
 import axios from "axios";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
-  const [filter, setFilter] = useState([]);
   const [data, setData] = useState([]);
-  const [date, setDate] = useState([]);
+  const [timings, setTimings] = useState({});
+  const [date, setDate] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,11 +18,19 @@ export default function PrayerTable(props) {
             location.longitude
           }&method=2
           `);
-        const filteredDate = filter.data[`${new Date().getDate() - 1}`];
-        setFilter(response.data);
-        setData(filteredDate);
-        console.log("DATA FETCHED:", data.timings);
-        console.log("CURRENT DATE DATA:", filteredDate.date);
+        const mainData = response.data.data[`${new Date().getDate() - 1}`];
+        const date = mainData.date;
+
+        console.log("DATA FETCHED:", mainData);
+        setTimings(mainData.timings);
+
+        // for (const x in timings) {
+        //   const value = timings[x];
+        //   console.log(x, value);
+        // }
+        setDate(mainData.date);
+        // console.log("TODAY'S TIMINGS:", timings);
+        // console.log("CURRENT DATE DATA:", date);
       } catch (err) {
         console.log("ERROR:", err);
       }
@@ -52,24 +61,14 @@ export default function PrayerTable(props) {
     }
   }, [location]);
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Age</th>
-        </tr>
-      </thead>
-      <tbody>
-        {/* {data.map((item) => (
-          <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>{item.age}</td>
-          </tr>
-        ))} */}
-      </tbody>
-    </table>
-  );
+  const prayerTable = Object.entries(timings).map(([key, value]) => {
+    if (key === "Fajr" || key === "Dhuhr") {
+      return <div>{`${key}: \n ${value.substr(0, 5).concat(" AM ")}`}</div>;
+    }
+    if (key === "Asr" || key === "Maghrib" || key === "Isha") {
+      return <div>{`${key}: ${value.substr(0, 5).concat(" PM ")}`}</div>;
+    }
+  });
+
+  return <div>{prayerTable}</div>;
 }
