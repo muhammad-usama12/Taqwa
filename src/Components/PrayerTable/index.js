@@ -12,6 +12,9 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+
+import moment from "moment";
+
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
   const [data, setData] = useState([]);
@@ -62,17 +65,36 @@ export default function PrayerTable(props) {
   }, [location]);
 
   const prayerTable = Object.entries(timings).map(([key, value]) => {
-    if (key === "Fajr" || key === "Dhuhr") {
+    if (key === "Fajr") {
       return (
         <Tr>
-          <td isNumeric>{key}</td> <td>{value.substr(0, 5).concat(" AM ")}</td>
+          {/* <td isNumeric>{key}</td> <td>{value.substr(0, 5).concat(" AM ")}</td> */}
+          <td isNumeric>{key}</td> <td>{value.substr(1, 5).concat(" AM")}</td>
         </Tr>
       );
     }
-    if (key === "Asr" || key === "Maghrib" || key === "Isha") {
+    if (
+      key === "Dhuhr" ||
+      key === "Asr" ||
+      key === "Maghrib" ||
+      key === "Isha"
+    ) {
+      // console.log(value.replace("(EDT)", ""));
+      let timeConversion = `${(
+        +value.replace("(EDT)", "").replace(":", "") - 1200
+      ).toString()}`;
+      const newTime =
+        timeConversion.substring(0, 1) +
+        ":" +
+        timeConversion.substring(1) +
+        " PM";
+
+      console.log(newTime);
       return (
         <Tr>
-          <td>{key}</td> <td>{`${value.substr(0, 5).concat(" PM ")}`}</td>
+          <td>{key}</td>
+          <td>{newTime}</td>
+          {/* <td>{key}</td> <td>{`${value.substr(0, 5).concat(" PM ")}`}</td> */}
         </Tr>
       );
     }
