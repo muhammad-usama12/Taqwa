@@ -1,0 +1,17 @@
+@import "../variables.scss";
+
+section {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+.heading {
+  text-align: left;
+}
+
+.structure {
+  text-align: left;
+}

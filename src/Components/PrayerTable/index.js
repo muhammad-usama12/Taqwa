@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./index.scss";
+import "./prayerTable.scss";
 import axios from "axios";
-
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
   const [data, setData] = useState([]);
@@ -19,18 +29,8 @@ export default function PrayerTable(props) {
           }&method=2
           `);
         const mainData = response.data.data[`${new Date().getDate() - 1}`];
-        const date = mainData.date;
-
-        console.log("DATA FETCHED:", mainData);
         setTimings(mainData.timings);
-
-        // for (const x in timings) {
-        //   const value = timings[x];
-        //   console.log(x, value);
-        // }
         setDate(mainData.date);
-        // console.log("TODAY'S TIMINGS:", timings);
-        // console.log("CURRENT DATE DATA:", date);
       } catch (err) {
         console.log("ERROR:", err);
       }
@@ -63,12 +63,53 @@ export default function PrayerTable(props) {
 
   const prayerTable = Object.entries(timings).map(([key, value]) => {
     if (key === "Fajr" || key === "Dhuhr") {
-      return <div>{`${key}: \n ${value.substr(0, 5).concat(" AM ")}`}</div>;
+      return (
+        <Tr>
+          <td isNumeric>{key}</td> <td>{value.substr(0, 5).concat(" AM ")}</td>
+        </Tr>
+      );
     }
     if (key === "Asr" || key === "Maghrib" || key === "Isha") {
-      return <div>{`${key}: ${value.substr(0, 5).concat(" PM ")}`}</div>;
+      return (
+        <Tr>
+          <td>{key}</td> <td>{`${value.substr(0, 5).concat(" PM ")}`}</td>
+        </Tr>
+      );
     }
+    return null;
   });
 
-  return <div>{prayerTable}</div>;
+  const test = Object.entries(date).map(([key, value]) => {
+    return key || value;
+  });
+
+  // console.log(test);
+
+  // const gregorianDate = date.gregorian;
+  // const engDate = `${gregorianDate.month.en} ${gregorianDate.day}, ${gregorianDate.year}`;
+
+  // console.log(gregorianDate);
+  // console.log(date.hijri);
+
+  // const dateObj = Object.entries(date).map(([key, value]) => {
+  //   return `"KEY & VALUE:", ${(key, value)};`;
+  // });
+  // console.log(dateObj);
+
+  return (
+    <section className="container">
+      <TableContainer>
+        <Table variant="striped" colorScheme="gray">
+          <Thead>
+            <Tr className="heading">
+              <Th>Prayer</Th>
+              <Th>Times</Th>
+            </Tr>
+          </Thead>
+          <Tbody className="structure">{prayerTable}</Tbody>
+        </Table>
+      </TableContainer>
+      {/* <h4>{engDate}</h4> */}
+    </section>
+  );
 }

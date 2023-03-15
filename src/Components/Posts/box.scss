@@ -2,9 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
 article {
   background-color: $tertiary-colour;
+  position: inherit;
   color: $primary-colour;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   word-wrap: break-word;
   width: 43vw;
   padding: 2rem 2rem 2rem 2rem;

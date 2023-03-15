@@ -9,8 +9,12 @@ function App() {
   return (
     <>
       <Header />
+      <br></br>
       <PrayerTable />
-      <Box />
+      <br></br>
+      {/* <div className="box">
+        <Box />
+      </div> */}
       <Footer />
     </>
   );
