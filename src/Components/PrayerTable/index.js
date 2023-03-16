@@ -12,14 +12,13 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-
-import moment from "moment";
+import { Spinner } from "@chakra-ui/react";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
-  const [data, setData] = useState([]);
   const [timings, setTimings] = useState({});
   const [date, setDate] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +33,7 @@ export default function PrayerTable(props) {
         const mainData = response.data.data[`${new Date().getDate() - 1}`];
         setTimings(mainData.timings);
         setDate(mainData.date);
+        setLoading(false);
       } catch (err) {
         console.log("ERROR:", err);
       }
@@ -68,8 +68,8 @@ export default function PrayerTable(props) {
     if (key === "Fajr") {
       return (
         <Tr>
-          {/* <td isNumeric>{key}</td> <td>{value.substr(0, 5).concat(" AM ")}</td> */}
-          <td isNumeric>{key}</td> <td>{value.substr(1, 5).concat(" AM")}</td>
+          <td>{key}</td>
+          <td>{value.substr(1, 5).concat(" AM")}</td>
         </Tr>
       );
     }
@@ -79,8 +79,7 @@ export default function PrayerTable(props) {
       key === "Maghrib" ||
       key === "Isha"
     ) {
-      // console.log(value.replace("(EDT)", ""));
-      let timeConversion = `${(
+      const timeConversion = `${(
         +value.replace("(EDT)", "").replace(":", "") - 1200
       ).toString()}`;
       const newTime =
@@ -89,29 +88,20 @@ export default function PrayerTable(props) {
         timeConversion.substring(1) +
         " PM";
 
-      console.log(newTime);
       return (
         <Tr>
           <td>{key}</td>
           <td>{newTime}</td>
-          {/* <td>{key}</td> <td>{`${value.substr(0, 5).concat(" PM ")}`}</td> */}
         </Tr>
       );
     }
     return null;
   });
+  //   );
 
-  const test = Object.entries(date).map(([key, value]) => {
-    return key || value;
-  });
+  const arabicDate = date.hijri;
 
-  // console.log(test);
-
-  // const gregorianDate = date.gregorian;
-  // const engDate = `${gregorianDate.month.en} ${gregorianDate.day}, ${gregorianDate.year}`;
-
-  // console.log(gregorianDate);
-  // console.log(date.hijri);
+  console.log(arabicDate);
 
   // const dateObj = Object.entries(date).map(([key, value]) => {
   //   return `"KEY & VALUE:", ${(key, value)};`;
@@ -121,15 +111,26 @@ export default function PrayerTable(props) {
   return (
     <section className="container">
       <TableContainer>
-        <Table variant="striped" colorScheme="gray">
-          <Thead>
-            <Tr className="heading">
-              <Th>Prayer</Th>
-              <Th>Times</Th>
-            </Tr>
-          </Thead>
-          <Tbody className="structure">{prayerTable}</Tbody>
-        </Table>
+        {loading ? (
+          <Spinner
+            thickness="5px"
+            speed="0.75s"
+            emptyColor="gray.200"
+            color="teal.500"
+            size="xl"
+          />
+        ) : (
+          <Table variant="striped" colorScheme="gray">
+            <TableCaption>{""}</TableCaption>
+            <Thead>
+              <Tr className="heading">
+                <Th>Prayer</Th>
+                <Th>Times</Th>
+              </Tr>
+            </Thead>
+            <Tbody className="structure">{prayerTable}</Tbody>
+          </Table>
+        )}
       </TableContainer>
       {/* <h4>{engDate}</h4> */}
     </section>
