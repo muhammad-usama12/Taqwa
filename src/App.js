@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import Header from "./Components/Header/header";
 import Box from "./Components/Posts/box";
 import "./App.scss";
@@ -10,11 +9,11 @@ function App() {
     <>
       <Header />
       <br></br>
-      <PrayerTable />
-      <br></br>
-      {/* <div className="box">
+      <div className="components">
+        <PrayerTable />
+        <br></br>
         <Box />
-      </div> */}
+      </div>
       <Footer />
     </>
   );

@@ -5,14 +5,13 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
-  Td,
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
+import moment from "moment";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
@@ -31,8 +30,12 @@ export default function PrayerTable(props) {
           }&method=2
           `);
         const mainData = response.data.data[`${new Date().getDate() - 1}`];
+        // setDate(mainData.date);
+        setDate(
+          `${mainData.date.hijri.month.en} ${mainData.date.hijri.month.number}, ${mainData.date.hijri.year}`
+        );
         setTimings(mainData.timings);
-        setDate(mainData.date);
+
         setLoading(false);
       } catch (err) {
         console.log("ERROR:", err);
@@ -99,14 +102,7 @@ export default function PrayerTable(props) {
   });
   //   );
 
-  const arabicDate = date.hijri;
-
-  console.log(arabicDate);
-
-  // const dateObj = Object.entries(date).map(([key, value]) => {
-  //   return `"KEY & VALUE:", ${(key, value)};`;
-  // });
-  // console.log(dateObj);
+  const gregorianTime = moment().format("LL");
 
   return (
     <section className="container">
@@ -121,6 +117,8 @@ export default function PrayerTable(props) {
           />
         ) : (
           <Table variant="striped" colorScheme="gray">
+            <caption>{gregorianTime}</caption>
+            <caption>{date}</caption>
             <TableCaption>{""}</TableCaption>
             <Thead>
               <Tr className="heading">

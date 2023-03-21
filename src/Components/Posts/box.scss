@@ -1,24 +1,20 @@
 @import "../variables.scss";
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
-article {
-  background-color: $tertiary-colour;
-  position: inherit;
-  color: $primary-colour;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  word-wrap: break-word;
-  width: 43vw;
-  padding: 2rem 2rem 2rem 2rem;
-  margin-top: 0;
-  // margin-bottom: 4rem;
-  box-shadow: 10px 10px $article-shadow;
+
+div {
+  display: grid;
   align-items: center;
-  font-family: "Fjalla One", sans-serif;
-  font-size: 25px;
-  font-weight: bolder;
 }
 
-h6 {
-  justify-content: end;
+article {
+  background-color: $tertiary-colour;
+  color: $primary-colour;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  word-wrap: break-word;
+  padding: 2rem 2rem 2rem 2rem;
+  box-shadow: 10px 10px $article-shadow;
+
+  //   font-size: 20px;
 }
