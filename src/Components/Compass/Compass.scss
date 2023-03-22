@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap");
+
 .compass {
   display: flex;
   position: relative;
@@ -8,14 +10,14 @@
 }
 
 .compass-background {
-  fill: #ffffff;
-  stroke: #b15050;
-  stroke-width: 2;
+  fill: #000000;
+  stroke: #a29a9a;
+  stroke-width: 3;
 }
 
 .compass-indicator {
-  stroke: #333;
-  stroke-width: 2;
+  stroke: #ffffff;
+  stroke-width: 3;
   stroke-linecap: round;
   transform-origin: center center;
   transition: transform 0.2s ease-out;
@@ -25,7 +27,7 @@
 .compass-south,
 .compass-east,
 .compass-west {
-  fill: #333;
+  fill: #ffffff;
   font-size: 12px;
   font-weight: bold;
   text-anchor: middle;
@@ -36,6 +38,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
-  padding-right: 5rem;
+  font-family: "Tinos", serif;
+  font-weight: 700;
 }
