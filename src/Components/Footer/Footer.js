@@ -6,7 +6,7 @@ export default function Footer(props) {
     <footer>
       <span>
         @ 2023 <a href="/">Nur</a> by{" "}
-        <a href="https://github.com/muhammad-usama12">muhammad usama</a>{" "}
+        <a href="https://github.com/muhammad-usama12">Muhammad Usama</a>{" "}
       </span>
     </footer>
   );
