@@ -1,26 +1,6 @@
-@import "./Components/variables.scss";
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: $bg-color;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-// main {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   min-height: 100vh;
-//   font-size: $primary-font-size;
-//   padding-top: 60px;
-// }
-
-.components {
-  display: flex;
+.compass-comp {
+  position: absolute;
+  top: 77%;
+  bottom: 0;
+  right: 1%;
 }

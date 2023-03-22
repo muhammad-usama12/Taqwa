@@ -3,19 +3,15 @@ import Box from "./Components/Posts/box";
 import "./App.scss";
 import Footer from "./Components/Footer/Footer";
 import PrayerTable from "./Components/PrayerTable";
+import Background from "./Background";
+import Compass from "./Components/Compass/Compass";
 
 function App() {
   return (
-    <>
-      <Header />
-      <br></br>
-      <div className="components">
-        <PrayerTable />
-        <br></br>
-        <Box />
-      </div>
-      <Footer />
-    </>
+    <div className="compass-comp">
+      <Compass />
+      <Background />
+    </div>
   );
 }
 
