@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./prayerTable.scss";
 import axios from "axios";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  TableCaption,
-  TableContainer,
-} from "@chakra-ui/react";
+import { Table, Tbody, Tr, Td, TableContainer, Mark } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import moment from "moment";
+import Label from "../label";
+import { Link } from "react-router-dom";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
@@ -30,7 +24,6 @@ export default function PrayerTable(props) {
           }&method=2
           `);
         const mainData = response.data.data[`${new Date().getDate() - 1}`];
-        // setDate(mainData.date);
         setDate(
           `${mainData.date.hijri.month.en} ${mainData.date.hijri.month.number}, ${mainData.date.hijri.year}`
         );
@@ -71,8 +64,10 @@ export default function PrayerTable(props) {
     if (key === "Fajr") {
       return (
         <Tr>
-          <td>{key}</td>
-          <td>{value.substr(1, 5).concat(" AM")}</td>
+          <Td fontWeight={"semibold"} fontSize={"14pt"}>
+            {key}
+          </Td>
+          <Td fontSize={"14pt"}>{value.substr(1, 5).concat(" AM")}</Td>
         </Tr>
       );
     }
@@ -93,8 +88,10 @@ export default function PrayerTable(props) {
 
       return (
         <Tr>
-          <td>{key}</td>
-          <td>{newTime}</td>
+          <Td fontWeight={"semibold"} fontSize={"14pt"}>
+            {key}
+          </Td>
+          <Td fontSize={"14pt"}>{newTime}</Td>
         </Tr>
       );
     }
@@ -102,35 +99,73 @@ export default function PrayerTable(props) {
   });
   //   );
 
-  const gregorianTime = moment().format("LL");
+  const gregorianDate = moment().format("LL");
 
   return (
     <section className="container">
+      <Label first={"Prayer"} last={"Times"} />
       <TableContainer>
         {loading ? (
           <Spinner
+            className="spinner"
             thickness="5px"
             speed="0.75s"
             emptyColor="gray.200"
-            color="teal.500"
+            color="blue.500"
             size="xl"
           />
         ) : (
-          <Table variant="striped" colorScheme="gray">
-            <caption>{gregorianTime}</caption>
-            <caption>{date}</caption>
-            <TableCaption>{""}</TableCaption>
-            <Thead>
-              <Tr className="heading">
-                <Th>Prayer</Th>
-                <Th>Times</Th>
-              </Tr>
-            </Thead>
+          <Table variant="striped" colorScheme="whiteAlpha" size={"md"}>
+            <Tbody className="date">
+              <Td>
+                <Mark
+                  bg="white"
+                  color="black"
+                  fontFamily="NewYork"
+                  fontSize={"13pt"}
+                  px="6"
+                  py="3"
+                >
+                  {"Hijri Date"}
+                </Mark>
+                <Mark
+                  bg="black"
+                  color="white"
+                  fontFamily="NewYork"
+                  fontSize={"13pt"}
+                  px="6"
+                  py="3"
+                >
+                  {date}
+                </Mark>
+              </Td>
+              <Td className="">
+                <Mark
+                  bg="white"
+                  color="black"
+                  fontFamily="NewYork"
+                  fontSize={"13pt"}
+                  px="6"
+                  py="3"
+                >
+                  {"Gregorian Date"}
+                </Mark>
+                <Mark
+                  bg="black"
+                  color="white"
+                  fontFamily="NewYork"
+                  fontSize={"13pt"}
+                  px="6"
+                  py="3"
+                >
+                  {gregorianDate}
+                </Mark>
+              </Td>
+            </Tbody>
             <Tbody className="structure">{prayerTable}</Tbody>
           </Table>
         )}
       </TableContainer>
-      {/* <h4>{engDate}</h4> */}
     </section>
   );
 }

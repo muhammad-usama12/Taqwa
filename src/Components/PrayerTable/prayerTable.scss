@@ -1,17 +1,33 @@
 @import "../variables.scss";
 
 section {
-  color: black;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  color: white;
   display: flex;
   flex-direction: column;
-  width: 45vw;
-  padding: 2rem 2rem 2rem 2rem;
+  width: 100vw;
 }
 
-.heading {
-  text-align: left;
+.container .spinner {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+section h2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
 }
 
 .structure {
-  text-align: left;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
 }
