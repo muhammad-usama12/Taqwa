@@ -74,11 +74,11 @@ export default function Compass() {
         <text x="85" y="50" textAnchor="middle" className="compass-east">
           E
         </text>
-        <text x="15" y="50" textAnchor="middle" className="compass-west">
+        <text x="17" y="50" textAnchor="middle" className="compass-west">
           W
         </text>
       </svg>
-      <Label first={"Qibla"} last={"Direction"} />
+      <Label first={"Qibla"} last={"Compass"} />
     </div>
   );
 }

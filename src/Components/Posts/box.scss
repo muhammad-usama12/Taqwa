@@ -1,14 +1,8 @@
 @import "../variables.scss";
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
 
-div {
-  display: grid;
-  align-items: center;
-}
-
 article {
   background-color: $tertiary-colour;
-  color: $primary-colour;
   display: flex;
   justify-content: center;
   flex-direction: column;

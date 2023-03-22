@@ -8,9 +8,14 @@ import Compass from "./Components/Compass/Compass";
 
 function App() {
   return (
-    <div className="compass-comp">
-      <Compass />
-      <Background />
+    <div className="components">
+      <div className="prayer-comp"></div>
+      <div className="compass-comp">
+        <Compass />
+        <Background />
+      </div>
+      <PrayerTable />
+      <Footer />
     </div>
   );
 }
