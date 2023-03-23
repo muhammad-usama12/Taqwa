@@ -1,0 +1,23 @@
+@import "../variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+
+h2 {
+  display: flex;
+  justify-content: flex-start;
+}
+.hadithContainer {
+  // display: flex;
+}
+
+// article {
+//   background-color: $tertiary-colour;
+//   color: black;
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   word-wrap: break-word;
+//   padding: 2rem 2rem 2rem 2rem;
+//   box-shadow: 10px 10px $article-shadow;
+
+//   //   font-size: 20px;
+// }
