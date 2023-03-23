@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Mark } from "@chakra-ui/react";
 
 export default function Clock() {
   const [date, setDate] = useState(new Date());
@@ -13,5 +13,11 @@ export default function Clock() {
       clearInterval(timerId);
     };
   }, []);
-  return <Box>{date.toLocaleTimeString()}</Box>;
+  return (
+    <Box textAlign={"center"} fontSize={"3xl"} color={"whiteAlpha.900"}>
+      <Mark bg="gray.900" color="gray.100">
+        {date.toLocaleTimeString()}
+      </Mark>
+    </Box>
+  );
 }
