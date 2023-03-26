@@ -5,7 +5,8 @@ import { Table, Tbody, Tr, Td, TableContainer, Mark } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import moment from "moment";
 import Label from "../label";
-import { Link } from "react-router-dom";
+import Clock from "../Clock";
+import AnalogClock from "analog-clock-react";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
@@ -25,7 +26,7 @@ export default function PrayerTable(props) {
           `);
         const mainData = response.data.data[`${new Date().getDate() - 1}`];
         setDate(
-          `${mainData.date.hijri.month.en} ${mainData.date.hijri.month.number}, ${mainData.date.hijri.year}`
+          `${mainData.date.hijri.month.en} ${mainData.date.hijri.day}, ${mainData.date.hijri.year}`
         );
         setTimings(mainData.timings);
 
@@ -115,8 +116,8 @@ export default function PrayerTable(props) {
             size="xl"
           />
         ) : (
-          <Table variant="striped" colorScheme="whiteAlpha" size={"md"}>
-            <Tbody className="date">
+          <Table variant="striped" colorScheme="blackAlpha" size={"md"}>
+            <Tbody className="date" bg={"transparent"}>
               <Td>
                 <Mark
                   bg="white"
@@ -162,6 +163,21 @@ export default function PrayerTable(props) {
                 </Mark>
               </Td>
             </Tbody>
+            <Td className="clock-comp">
+              <AnalogClock
+                border="true"
+                borderColor="#2e2e2e"
+                baseColor="#000000"
+                centerColor="#050505"
+                centerBorderColor="#ffffff"
+                handColors={"#c8c0c4"}
+                width={"300px"}
+              />
+              <br></br>
+              <Clock />
+              <br></br>
+            </Td>
+
             <Tbody className="structure">{prayerTable}</Tbody>
           </Table>
         )}
