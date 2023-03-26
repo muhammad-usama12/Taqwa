@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./box.scss";
 import axios from "axios";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Container, Divider, Text } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import Label from "../label";
-import Clock from "../Clock";
 
 export default function HadithBox(props) {
   const [data, setData] = useState("");
@@ -12,7 +12,11 @@ export default function HadithBox(props) {
   const [random, setRandom] = useState(Math.floor(Math.random() * 7563));
 
   const handleClick = async () => {
+    console.log("CLICKED");
     newHadith();
+  };
+  const clicked = () => {
+    console.log("CLICK TEST");
   };
 
   useEffect(() => {
@@ -41,36 +45,43 @@ export default function HadithBox(props) {
   }, [filter]);
 
   return (
-    <div>
-      <Label first={"Hadith"} last={"Of The Day"} />
-      <Box
-        mt={"40px"}
-        padding={"12"}
-        textAlign={"center"}
-        className="hadith-container"
-        color="whiteAlpha.900"
-        w={"1000px"}
-        h={"300px"}
-        bg="transparent"
-        borderColor={"red"}
-        borderWidth="1px"
-        borderRadius="lg"
-        letterSpacing="widest"
-        fontSize="lg"
-        textTransform="uppercase"
-      >
-        {data}
-        <h6>{meta}</h6>
+    <>
+      <Container className="hadithBox" centerContent>
+        <Label first={"Hadith"} last={"Of The Day"} />
+        <Box
+          margin={"20px"}
+          display="inline-block"
+          maxW={{ base: "100%", sm: "400px", md: "600px", lg: "800px" }}
+          p={4}
+          overflowWrap="break-word"
+          mt={"40px"}
+          padding={"12"}
+          textAlign={"center"}
+          className="hadith-container"
+          color="whiteAlpha.900"
+          bg="transparent"
+          borderColor={"white"}
+          borderWidth={"1px"}
+          borderRadius="lg"
+          letterSpacing="widest"
+          fontSize="lg"
+          textTransform="uppercase"
+        >
+          {data}
+
+          <Divider margin={"20px"} />
+          <Text margin={"20px"} align={"left"}>
+            {meta}
+          </Text>
+        </Box>
         <Button
-          colorScheme={"blackAlpha"}
-          color={"GrayText"}
+          zIndex={10000}
+          colorScheme={"messenger.900"}
           onClick={handleClick}
         >
           Next Hadith
         </Button>
-      </Box>
-
-      <br></br>
-    </div>
+      </Container>
+    </>
   );
 }
