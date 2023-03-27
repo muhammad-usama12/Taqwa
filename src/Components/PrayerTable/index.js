@@ -4,9 +4,10 @@ import axios from "axios";
 import { Table, Tbody, Tr, Td, TableContainer, Mark } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import moment from "moment";
-import Label from "../label";
+import Label from "../Label/label";
 import Clock from "../Clock";
 import AnalogClock from "analog-clock-react";
+import "../Label/label.scss";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
@@ -65,10 +66,12 @@ export default function PrayerTable(props) {
     if (key === "Fajr") {
       return (
         <Tr>
-          <Td fontWeight={"semibold"} fontSize={"14pt"}>
+          <Td className="glowEffect" fontWeight={"semibold"} fontSize={"14pt"}>
             {key}
           </Td>
-          <Td fontSize={"14pt"}>{value.substr(1, 5).concat(" AM")}</Td>
+          <Td className="glowEffect" fontSize={"14pt"}>
+            {value.substr(1, 5).concat(" AM")}
+          </Td>
         </Tr>
       );
     }
@@ -89,10 +92,12 @@ export default function PrayerTable(props) {
 
       return (
         <Tr>
-          <Td fontWeight={"semibold"} fontSize={"14pt"}>
+          <Td className="glowEffect" fontWeight={"semibold"} fontSize={"14pt"}>
             {key}
           </Td>
-          <Td fontSize={"14pt"}>{newTime}</Td>
+          <Td className="glowEffect" fontSize={"14pt"}>
+            {newTime}
+          </Td>
         </Tr>
       );
     }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Components/Header/header";
 import "./App.scss";
 import Footer from "./Components/Footer/Footer";
 import PrayerTable from "./Components/PrayerTable";
 import Background from "./Background";
 import Compass from "./Components/Compass/Compass";
 import HadithBox from "./Components/HadithBox/box";
+import Names from "./Components/Names/names";
 
 function App() {
   const [showFooter, setShowFooter] = useState(true);
@@ -15,7 +15,7 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
 
   function handleScroll() {
     if (window.scrollY > 0 && showFooter) {
@@ -27,6 +27,8 @@ function App() {
 
   return (
     <div className="components">
+      <Names />
+      <img src="" alt="Allah Image" />
       <div className="prayer-comp"></div>
       <div className="compass-comp">
         <Compass />

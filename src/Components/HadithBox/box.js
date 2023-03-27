@@ -3,7 +3,7 @@ import "./box.scss";
 import axios from "axios";
 import { Box, Container, Divider, Text } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
-import Label from "../label";
+import Label from "../Label/label";
 
 export default function HadithBox() {
   const [data, setData] = useState("");

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Compass.scss";
-import Label from "../label";
+import Label from "../Label/label";
 
 export default function Compass() {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
