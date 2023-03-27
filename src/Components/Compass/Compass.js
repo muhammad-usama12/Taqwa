@@ -11,7 +11,7 @@ export default function Compass() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://api.aladhan.com/v1/qibla/${location.latitude}/${location.longitude}`
+          `https://api.aladhan.com/v1/qibla/${location.latitude}/${location.longitude}`
         );
         const direction = res.data.data.direction;
         setAngle(direction);
