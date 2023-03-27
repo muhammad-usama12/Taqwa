@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Compass.scss";
-import Label from "../Label/label";
+import { Mark } from "@chakra-ui/react";
 
 export default function Compass() {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
@@ -78,7 +78,16 @@ export default function Compass() {
           W
         </text>
       </svg>
-      <Label first={"Qibla"} last={"Compass"} />
+      <Mark
+        className="glowEffect"
+        bg="gray.900"
+        color="gray.100"
+        fontSize={"3xl"}
+        fontFamily={"heading"}
+        letterSpacing={"widest"}
+      >
+        Qibla Compass
+      </Mark>
     </div>
   );
 }

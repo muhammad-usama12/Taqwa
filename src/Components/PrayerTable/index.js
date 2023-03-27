@@ -8,6 +8,7 @@ import Label from "../Label/label";
 import Clock from "../Clock";
 import AnalogClock from "analog-clock-react";
 import "../Label/label.scss";
+import Compass from "../Compass/Compass";
 
 export default function PrayerTable(props) {
   const [location, setLocation] = useState({ longitude: null, latitude: null });
@@ -145,6 +146,7 @@ export default function PrayerTable(props) {
                   {date}
                 </Mark>
               </Td>
+
               <Td className="">
                 <Mark
                   bg="white"
@@ -168,20 +170,26 @@ export default function PrayerTable(props) {
                 </Mark>
               </Td>
             </Tbody>
-            <Td className="clock-comp">
-              <AnalogClock
-                border="true"
-                borderColor="#2e2e2e"
-                baseColor="#000000"
-                centerColor="#050505"
-                centerBorderColor="#ffffff"
-                handColors={"#c8c0c4"}
-                width={"300px"}
-              />
-              <br></br>
-              <Clock />
-              <br></br>
-            </Td>
+            <div className="clock-comp">
+              <ul>
+                <li>
+                  <Compass />
+                </li>
+                <li>
+                  {" "}
+                  <AnalogClock
+                    border="true"
+                    borderColor="#2e2e2e"
+                    baseColor="#000000"
+                    centerColor="#050505"
+                    centerBorderColor="#ffffff"
+                    handColors={"#c8c0c4"}
+                    width={"300px"}
+                  />
+                  <Clock />
+                </li>{" "}
+              </ul>
+            </div>
 
             <Tbody className="structure">{prayerTable}</Tbody>
           </Table>

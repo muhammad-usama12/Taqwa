@@ -40,3 +40,13 @@ section h2 {
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+li {
+  list-style-type: none;
+  margin: 30px;
+  padding-bottom: 10px;
+}
