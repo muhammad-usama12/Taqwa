@@ -10,6 +10,8 @@ import sample7 from "./assets/sample7.mp4";
 import sample8 from "./assets/sample8.mp4";
 import sample9 from "./assets/sample9.mp4";
 import sample10 from "./assets/sample10.mp4";
+import sample11 from "./assets/sample11.mp4";
+import sample12 from "./assets/sample12.mp4";
 
 const samepleVideos = [
   sample1,
@@ -22,6 +24,8 @@ const samepleVideos = [
   sample8,
   sample9,
   sample10,
+  sample11,
+  sample12,
 ];
 
 export default function Background() {
