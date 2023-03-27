@@ -7,6 +7,9 @@ import sample4 from "./assets/sample4.mp4";
 import sample5 from "./assets/sample5.mp4";
 import sample6 from "./assets/sample6.mp4";
 import sample7 from "./assets/sample7.mp4";
+import sample8 from "./assets/sample8.mp4";
+import sample9 from "./assets/sample9.mp4";
+import sample10 from "./assets/sample10.mp4";
 
 const samepleVideos = [
   sample1,
@@ -16,13 +19,16 @@ const samepleVideos = [
   sample5,
   sample6,
   sample7,
+  sample8,
+  sample9,
+  sample10,
 ];
 
 export default function Background() {
   const [video, currentVideo] = useState();
 
   useEffect(() => {
-    const random = Math.floor(Math.random() * samepleVideos.length);
+    const random = Math.floor(Math.random() * samepleVideos.length + 0);
     console.log(random);
     currentVideo(samepleVideos[random]);
   }, []);
