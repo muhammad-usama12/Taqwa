@@ -5,18 +5,15 @@ import { Box, Container, Divider, Text } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import Label from "../label";
 
-export default function HadithBox(props) {
+export default function HadithBox() {
   const [data, setData] = useState("");
   const [filter, setFilter] = useState("");
+  const [edition, setEdition] = useState("");
   const [meta, setMeta] = useState("");
   const [random, setRandom] = useState(Math.floor(Math.random() * 7563));
 
   const handleClick = async () => {
-    console.log("CLICKED");
     newHadith();
-  };
-  const clicked = () => {
-    console.log("CLICK TEST");
   };
 
   useEffect(() => {
@@ -24,6 +21,8 @@ export default function HadithBox(props) {
       const res = await axios.get(
         "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-muslim.json"
       );
+
+      setEdition(res.data.metadata.name);
       const filter = res.data.hadiths[random - 1];
       setFilter(filter);
     };
@@ -69,9 +68,9 @@ export default function HadithBox(props) {
         >
           {data}
 
-          <Divider margin={"20px"} />
+          <Divider margin={"25px"} />
           <Text margin={"20px"} align={"left"}>
-            {meta}
+            {edition}, {meta}
           </Text>
         </Box>
         <Button
