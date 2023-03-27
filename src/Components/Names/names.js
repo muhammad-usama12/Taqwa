@@ -1,6 +1,6 @@
 import { Box, Center, Container, Divider, Text } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Label from "../Label/label";
 import "../Label/label.scss";
 
@@ -9,7 +9,6 @@ export default function Names() {
   const [englishName, newEnglishName] = useState("");
   const [meaning, newMeaning] = useState("");
   const [desc, newDesc] = useState("");
-  const [number, newNumber] = useState(Math.floor(Math.random() * 99) + 0);
 
   const randNum = Math.floor(Math.random() * 99);
 

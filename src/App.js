@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.scss";
 import Footer from "./Components/Footer/Footer";
 import PrayerTable from "./Components/PrayerTable";
 import Background from "./Background";
-import Compass from "./Components/Compass/Compass";
 import HadithBox from "./Components/HadithBox/box";
 import Names from "./Components/Names/names";
 
 function App() {
-  const [showFooter, setShowFooter] = useState(false);
+  // const [showFooter, setShowFooter] = useState(false);
 
   // useEffect(() => {
   //   window.addEventListener("scroll", handleScroll);
@@ -41,7 +40,7 @@ function App() {
       <PrayerTable />
       <HadithBox />
 
-      {showFooter && <Footer />}
+      {<Footer />}
     </div>
   );
 }
