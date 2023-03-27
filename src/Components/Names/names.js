@@ -5,7 +5,6 @@ import Label from "../Label/label";
 import "../Label/label.scss";
 
 export default function Names() {
-  const [data, newData] = useState("");
   const [arabicName, newArabicName] = useState("");
   const [englishName, newEnglishName] = useState("");
   const [meaning, newMeaning] = useState("");
@@ -13,7 +12,6 @@ export default function Names() {
   const [number, newNumber] = useState(Math.floor(Math.random() * 99) + 0);
 
   const randNum = Math.floor(Math.random() * 99);
-  // console.log(randNum);
 
   useState(() => {
     axios
@@ -21,8 +19,6 @@ export default function Names() {
         "https://raw.githubusercontent.com/KabDeveloper/99-Names-Of-Allah/main/99_Names_Of_Allah.json"
       )
       .then((res) => {
-        // console.log(res.data.data[randNum]);
-        newData(res.data.data[randNum]);
         newArabicName(res.data.data[randNum].name);
         newEnglishName(res.data.data[randNum].transliteration);
         newMeaning(res.data.data[randNum].en.meaning);
@@ -33,9 +29,6 @@ export default function Names() {
       });
   });
 
-  console.log(meaning);
-  console.log(desc);
-
   return (
     <>
       <Container centerContent>
@@ -45,7 +38,7 @@ export default function Names() {
           maxW={{ base: "100%", sm: "400px", md: "600px", lg: "800px" }}
           zIndex={10000}
           mt={"40px"}
-          padding={"8"}
+          padding={"2"}
           textAlign={"center"}
           color="whiteAlpha.900"
           bg="transparent"
