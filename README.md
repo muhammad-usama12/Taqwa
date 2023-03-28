@@ -1,14 +1,12 @@
-# Taqwa
+# Taqwa (تقوى)
 
-#### <strong> Taqwa (التقوى) </strong> is a front-end application that provides essential Islamic tools in one centralized dashboard. Designed to serve as a daily reminder for practicing Muslims, Taqwa offers features such as accurate prayer times, qibla direction, names of Allah, and Prophet's Hadith. The app dynamically renders this information based on the user's location, ensuring precision and reliability. To enhance user experience, Taqwa offers multiple background themes that are seamlessly incorporated into the UI design.
-
-<hr>
+##### <strong> Taqwa (تقوى) </strong> is a front-end application that provides essential Islamic tools in one centralized dashboard. Designed to serve as a daily reminder for practicing Muslims, Taqwa offers features such as accurate prayer times, qibla direction, names of Allah, and Prophet's Hadith. The app dynamically renders this information based on the user's location, ensuring precision and reliability. To enhance user experience, Taqwa offers multiple background themes that are seamlessly incorporated into the UI design.
 
 ## App Screencaps
 
 !["Homepage"](https://github.com/muhammad-usama12/taqwa/blob/main/docs/bg_1.png)
 
-!["Homepage -- 2"](https://github.com/muhammad-usama12/taqwa/blob/main/docs/bg_1.png)
+!["Homepage -- 2"](https://github.com/muhammad-usama12/taqwa/blob/main/docs/bg_2.png)
 
 Taqwa Homepage
 
@@ -32,4 +30,7 @@ Missing dependencies can be installed with: `npm install 'package'`
 
 - React
 - Axios
-- SASS
+- Sass
+- Chakra UI
+- Analog Clock React
+- Moment
