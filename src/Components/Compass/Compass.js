@@ -15,7 +15,6 @@ export default function Compass() {
         );
         const direction = res.data.data.direction;
         setAngle(direction);
-        console.log(direction);
       } catch (err) {
         console.log("ERROR:", err);
       }
@@ -33,7 +32,6 @@ export default function Compass() {
 
         const { latitude, longitude } = position.coords;
         setLocation({ longitude, latitude });
-        console.log("LOCATION:", latitude, longitude);
       } catch (error) {
         console.log("Error getting location:", error);
       }

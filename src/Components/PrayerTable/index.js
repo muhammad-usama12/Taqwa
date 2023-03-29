@@ -50,7 +50,6 @@ export default function PrayerTable(props) {
 
         const { latitude, longitude } = position.coords;
         setLocation({ longitude, latitude });
-        console.log("LOCATION:", latitude, longitude);
       } catch (error) {
         console.log("Error getting location:", error);
       }
