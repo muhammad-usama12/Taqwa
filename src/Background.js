@@ -38,7 +38,7 @@ export default function Background() {
 
   return (
     <div className="background">
-      <video src={video} autoPlay loop muted />
+      <video src={video} autoPlay loop muted playsInline />
     </div>
   );
 }
