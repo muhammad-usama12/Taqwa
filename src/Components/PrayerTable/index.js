@@ -173,9 +173,6 @@ export default function PrayerTable(props) {
             <div className="clock-comp">
               <ul>
                 <li>
-                  <Compass />
-                </li>
-                <li>
                   {" "}
                   <AnalogClock
                     border="true"
@@ -188,6 +185,9 @@ export default function PrayerTable(props) {
                   />
                   <Clock />
                 </li>{" "}
+                <li>
+                  <Compass />
+                </li>
               </ul>
             </div>
 
