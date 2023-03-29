@@ -32,7 +32,7 @@ export default function Background() {
   const [video, currentVideo] = useState();
 
   useEffect(() => {
-    const random = Math.floor(Math.random() * samepleVideos.length + 0);
+    const random = Math.floor(Math.random() * samepleVideos.length);
     console.log(random);
     currentVideo(samepleVideos[random]);
   }, []);
