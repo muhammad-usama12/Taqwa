@@ -42,7 +42,6 @@ export default function Names() {
           color="whiteAlpha.900"
           bg="transparent"
           borderColor={"white"}
-          // borderWidth={"1px"}
           borderRadius="lg"
           letterSpacing="widest"
           fontSize="lg"

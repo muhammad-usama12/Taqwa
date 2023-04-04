@@ -103,7 +103,6 @@ export default function PrayerTable(props) {
     }
     return null;
   });
-  //   );
 
   const gregorianDate = moment().format("LL");
 

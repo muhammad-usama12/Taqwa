@@ -1,14 +1,5 @@
 @import "../variables.scss";
 
-// section {
-//   padding-top: 3rem;
-//   padding-bottom: 3rem;
-//   color: white;
-//   display: flex;
-//   flex-direction: column;
-//   width: 100vw;
-// }
-
 .container {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -60,28 +51,6 @@ li {
   margin-bottom: 50px;
 }
 
-// @media only screen and (min-width: 300px) and (max-width: 865px) {
-//   .date {
-//     display: flex;
-//     padding-left: 3em;
-//     padding-bottom: 3rem;
-//     flex-direction: column;
-//   }
-//   .clock-comp {
-//     overflow: hidden;
-//     display: flex;
-//     justify-content: center;
-//     align-items: flex-start;
-//     flex-wrap: wrap;
-//     flex-direction: column;
-//     padding-left: 3rem;
-//   }
-//   ul {
-//     display: flex;
-//     flex-direction: column;
-//     list-style-type: none;
-//   }
-// }
 @media only screen and (min-width: 250px) and (max-width: 1065px) {
   .date {
     display: flex;

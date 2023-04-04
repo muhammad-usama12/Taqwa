@@ -16,7 +16,6 @@ export default function Label(props) {
       </Mark>
       <Mark
         color={"whiteAlpha.900"}
-        // bg={"whiteAlpha.900"}
         fontFamily={""}
         px={2}
         py={1}
