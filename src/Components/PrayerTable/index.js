@@ -75,15 +75,23 @@ export default function PrayerTable(props) {
         </Tr>
       );
     }
-    if (
-      key === "Dhuhr" ||
-      key === "Asr" ||
-      key === "Maghrib" ||
-      key === "Isha"
-    ) {
-      const timeConversion = `${(
-        +value.replace("(EDT)", "").replace(":", "") - 1200
-      ).toString()}`;
+    if (key === "Dhuhr") {
+      return (
+        <Tr>
+          <Td className="glowEffect" fontWeight={"semibold"} fontSize={"14pt"}>
+            {key}
+          </Td>
+          <Td className="glowEffect" fontSize={"14pt"}>
+            {value.substr(0, 5).concat(" PM")}
+            {/* {newTime} */}
+          </Td>
+        </Tr>
+      );
+    }
+    if (key === "Asr" || key === "Maghrib" || key === "Isha") {
+      const timeConversion = `${
+        +value.replace("(EST)", "").replace(":", "") - 1200
+      }`;
       const newTime =
         timeConversion.substring(0, 1) +
         ":" +
