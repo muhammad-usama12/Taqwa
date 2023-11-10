@@ -16,7 +16,7 @@ function App() {
         <Background />
       </div>
       <PrayerTable />
-      <HadithBox />
+      {/* <HadithBox /> */}
 
       {<Footer />}
     </div>
